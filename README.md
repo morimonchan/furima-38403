@@ -4,29 +4,15 @@
 
 <!-- ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name               | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
+| Column             | Type   | Options                |
+| ------------------ | ------ | -----------            |
+| nickname           | string | null: false            |
+| email              | string | null: false default: ""|
+| encrypted_password | string | null: false default: ""|
+| name_last          | string | null: false            |
+| name_first         | string | null: false            |
+| name_kana_ last    | string | null: false            |
+| name_kana_first    | string | null: false            |
+| birthday           | integer| null: false            |
 
-## rooms テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-## messages テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true | -->
