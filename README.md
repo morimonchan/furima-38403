@@ -7,53 +7,56 @@
 | Column             | Type   | Options                |
 | ------------------ | ------ | -----------            |
 | nickname           | string | null: false            |
-| email              | string | null: false default: ""|
+| email              | string | null: false default: "",unique: true|
 | encrypted_password | string | null: false default: ""|
 | name_last          | string | null: false            |
 | name_first         | string | null: false            |
 | name_kana_ last    | string | null: false            |
 | name_kana_first    | string | null: false            |
-| birthday           | integer| null: false            |
+| birthday           | date   | null: false            |
 
-- belongs_to :item
-- belongs_to :price
+- has_many :users
+- has_many :purchase_histories
 
 ＊items テーブル
 | Column             | Type   | Options                |
 | ------------------ | ------ | -----------            |
-| image              | text   | null: false            |
 | name               | string | null: false            |
 | explain            | text   | null: false            |
-| category           | string | null: false            |
-| condition          | string | null: false            |
-| cost_burden        | string | null: false            |
-| place              | string | null: false            |
-| day                | integer| null: false            |
+| category_id        | integer| null: false            |
+| condition_id       | integer| null: false            |
+| cost_burden_id     | integer| null: false            |
+| place_id           | integer| null: false            |
+| day_id             | integer| null: false            |
+| user_id            | references| null: false foreign_key: true           |
 
-- has_many :users
-- belongs_to :price
+- belongs_to :user
+- belongs_to :purchase_history
 
-＊prices テーブル
-| Column             | Type   | Options                |
-| ------------------ | ------ | -----------            |
-| price              | integer| null: false            |
+
+*purchase_histories テーブル
+| Column             | Type    | Options                                     |
+| ------------------ | ------- | -----------                                 |
+| user_id            | references | null: false  foreign_key: true           |
+| item_id            | references | null: false  foreign_key: true           |
+| sent_id            | references | null: false  foreign_key: true           |
 
 - belongs_to :user
 - belongs_to :item
 - belongs_to :sent
 
+
+
+
 ＊sents テーブル
 | Column             | Type    | Options                 |
 | ------------------ | ------- | -----------             |
-| number             | integer | null: false             |
-| exp_month          | integer | null: false default: "" |
-| cvc                | integer | null: false default: "" |
 | code               | integer | null: false             |
-| prefectures        | string  | null: false             |
+| place_id           | integer | null: false   foreign_key: true          |
 | city               | string  | null: false             |
 | street_address     | string  | null: false             |
 | building           | string  |                         |
-| phone_number       | integer | null: false          |
+| phone_number       | string  | null: false             |
 
 
-- belongs_to :price
+- belongs_to :purchase_history
