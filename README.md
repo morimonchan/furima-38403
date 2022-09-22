@@ -32,7 +32,7 @@
 | user               | references| null: false foreign_key: true           |
 
 - belongs_to :user
-- belongs_to :purchase_history, dependent: :destroy
+- has_one    :purchase_history
 
 
 *purchase_histories テーブル
@@ -43,7 +43,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :sent, dependent: :destroy
+- has_one    :sent
 
 
 ＊sents テーブル
