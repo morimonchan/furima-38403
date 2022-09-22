@@ -27,11 +27,11 @@
 | condition_id       | integer| null: false            |
 | cost_burden_id     | integer| null: false            |
 | place_id           | integer| null: false            |
-| day_id             | integer| null: false            |
+| sent_day_id        | integer| null: false            |
 | user               | references| null: false foreign_key: true           |
 
 - belongs_to :user
-- belongs_to :purchase_history
+- has_many :purchase_histories
 
 
 *purchase_histories テーブル
@@ -42,13 +42,14 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_many   :sents
 
 
 ＊sents テーブル
 | Column             | Type    | Options                 |
 | ------------------ | ------- | -----------             |
 | code               | string  | null: false             |
-| place              | integer | null: false             |
+| place_id           | integer | null: false             |
 | city               | string  | null: false             |
 | street_address     | string  | null: false             |
 | building           | string  |                         |
