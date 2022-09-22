@@ -28,10 +28,11 @@
 | cost_burden_id     | integer| null: false            |
 | place_id           | integer| null: false            |
 | sent_day_id        | integer| null: false            |
+| price              | integer| null: false            |
 | user               | references| null: false foreign_key: true           |
 
 - belongs_to :user
-- has_many :purchase_histories
+- belongs_to :purchase_history, dependent: :destroy
 
 
 *purchase_histories テーブル
@@ -42,7 +43,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many   :sents
+- belongs_to :sent, dependent: :destroy
 
 
 ＊sents テーブル
