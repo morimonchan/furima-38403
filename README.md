@@ -15,7 +15,7 @@
 | name_kana_first    | string | null: false            |
 | birthday           | date   | null: false            |
 
-- has_many :users
+- has_many :items
 - has_many :purchase_histories
 
 ＊items テーブル
@@ -28,35 +28,32 @@
 | cost_burden_id     | integer| null: false            |
 | place_id           | integer| null: false            |
 | day_id             | integer| null: false            |
-| user_id            | references| null: false foreign_key: true           |
+| user               | references| null: false foreign_key: true           |
 
 - belongs_to :user
-- belongs_to :purchase_history
+- belongs_to :sent
 
 
 *purchase_histories テーブル
 | Column             | Type    | Options                                     |
 | ------------------ | ------- | -----------                                 |
-| user_id            | references | null: false  foreign_key: true           |
-| item_id            | references | null: false  foreign_key: true           |
-| sent_id            | references | null: false  foreign_key: true           |
+| user               | references | null: false  foreign_key: true           |
+| item               | references | null: false  foreign_key: true           |
 
 - belongs_to :user
 - belongs_to :item
 - belongs_to :sent
 
 
-
-
 ＊sents テーブル
 | Column             | Type    | Options                 |
 | ------------------ | ------- | -----------             |
 | code               | integer | null: false             |
-| place_id           | integer | null: false   foreign_key: true          |
+| place              | integer | null: false   foreign_key: true          |
 | city               | string  | null: false             |
 | street_address     | string  | null: false             |
 | building           | string  |                         |
 | phone_number       | string  | null: false             |
-
+| purchase_history   | references| null: false   foreign_key: true          |
 
 - belongs_to :purchase_history
