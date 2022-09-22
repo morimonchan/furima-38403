@@ -31,7 +31,7 @@
 | user               | references| null: false foreign_key: true           |
 
 - belongs_to :user
-- belongs_to :sent
+- belongs_to :purchase_history
 
 
 *purchase_histories テーブル
@@ -42,14 +42,13 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :sent
 
 
 ＊sents テーブル
 | Column             | Type    | Options                 |
 | ------------------ | ------- | -----------             |
-| code               | integer | null: false             |
-| place              | integer | null: false   foreign_key: true          |
+| code               | string  | null: false             |
+| place              | integer | null: false             |
 | city               | string  | null: false             |
 | street_address     | string  | null: false             |
 | building           | string  |                         |
