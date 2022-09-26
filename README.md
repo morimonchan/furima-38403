@@ -11,7 +11,7 @@
 | encrypted_password | string | null: false default: ""|
 | name_last          | string | null: false            |
 | name_first         | string | null: false            |
-| name_kana_ last    | string | null: false            |
+| name_kana_last    | string | null: false            |
 | name_kana_first    | string | null: false            |
 | birthday           | date   | null: false            |
 
